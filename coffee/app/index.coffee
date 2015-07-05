@@ -1,1 +1,2 @@
-console.log 'app'
+class SqlDom
+  foo:-> 1
