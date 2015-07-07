@@ -8,6 +8,8 @@ SqlDom = (function() {
     return 1;
   };
 
+  SqlDom.prototype.Update = function(query) {};
+
   return SqlDom;
 
 })();
