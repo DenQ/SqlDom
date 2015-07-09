@@ -7,7 +7,9 @@ class Parser
   constructor:(@query)->
     @InitParsers()
     @parser = @GetParser()
-    return @
+    if @parser is false
+      throw false
+    return @parser
 
   InitParsers:->
     @parsers = [
@@ -18,6 +20,7 @@ class Parser
     ]
 
   GetParser:->
+    return @parser if @parser?
     for item in @parsers
       if item.ICan() is true
         return item

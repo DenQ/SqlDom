@@ -39,7 +39,10 @@ Parser = (function() {
     this.query = query1;
     this.InitParsers();
     this.parser = this.GetParser();
-    return this;
+    if (this.parser === false) {
+      throw false;
+    }
+    return this.parser;
   }
 
   Parser.prototype.InitParsers = function() {
@@ -48,6 +51,9 @@ Parser = (function() {
 
   Parser.prototype.GetParser = function() {
     var i, item, len, ref;
+    if (this.parser != null) {
+      return this.parser;
+    }
     ref = this.parsers;
     for (i = 0, len = ref.length; i < len; i++) {
       item = ref[i];
@@ -66,8 +72,12 @@ ParserDelete = (function(superClass) {
   extend(ParserDelete, superClass);
 
   function ParserDelete() {
-    return ParserDelete.__super__.constructor.apply(this, arguments);
+    this;
   }
+
+  ParserDelete.prototype.ICan = function() {
+    return false;
+  };
 
   return ParserDelete;
 
@@ -77,8 +87,12 @@ ParserInsert = (function(superClass) {
   extend(ParserInsert, superClass);
 
   function ParserInsert() {
-    return ParserInsert.__super__.constructor.apply(this, arguments);
+    this;
   }
+
+  ParserInsert.prototype.ICan = function() {
+    return false;
+  };
 
   return ParserInsert;
 
@@ -88,8 +102,12 @@ ParserSelect = (function(superClass) {
   extend(ParserSelect, superClass);
 
   function ParserSelect() {
-    return ParserSelect.__super__.constructor.apply(this, arguments);
+    this;
   }
+
+  ParserSelect.prototype.ICan = function() {
+    return true;
+  };
 
   return ParserSelect;
 
@@ -99,8 +117,12 @@ ParserUpdate = (function(superClass) {
   extend(ParserUpdate, superClass);
 
   function ParserUpdate() {
-    return ParserUpdate.__super__.constructor.apply(this, arguments);
+    this;
   }
+
+  ParserUpdate.prototype.ICan = function() {
+    return false;
+  };
 
   return ParserUpdate;
 
