@@ -3,13 +3,28 @@
   describe('SQL parsing', function() {
     it('Exception if query incorrect', function() {
       return expect((function() {
-        return new Parser('into');
+        return new Parser('qqq');
       })).toThrow();
     });
-    return it('Select parsing', function() {
+    it('Select parsing', function() {
       var parser;
-      parser = new Parser('select * from table');
+      parser = new Parser('select ...');
       return expect(parser instanceof ParserSelect).toBe(true);
+    });
+    it('Insert parsing', function() {
+      var parser;
+      parser = new Parser('insert into ...');
+      return expect(parser instanceof ParserInsert).toBe(true);
+    });
+    it('Update parsing', function() {
+      var parser;
+      parser = new Parser('update ...');
+      return expect(parser instanceof ParserUpdate).toBe(true);
+    });
+    return it('Delete parsing', function() {
+      var parser;
+      parser = new Parser('delete ...');
+      return expect(parser instanceof ParserDelete).toBe(true);
     });
   });
 

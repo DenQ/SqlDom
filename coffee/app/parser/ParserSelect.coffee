@@ -1,5 +1,6 @@
 class ParserSelect extends IParser
 
-  constructor:-> @
+  constructor:(@query)-> @
 
-  ICan:-> true
+  ICan:->
+    return _.startsWith @query, 'select '

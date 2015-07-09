@@ -16,7 +16,8 @@ SqlDom = (function() {
 SqlDom('select * from .container');
 
 IParser = (function() {
-  function IParser(query) {
+  function IParser(query1) {
+    this.query = query1;
     throw false;
   }
 
@@ -71,12 +72,13 @@ Parser = (function() {
 ParserDelete = (function(superClass) {
   extend(ParserDelete, superClass);
 
-  function ParserDelete() {
+  function ParserDelete(query1) {
+    this.query = query1;
     this;
   }
 
   ParserDelete.prototype.ICan = function() {
-    return false;
+    return _.startsWith(this.query, 'delete ');
   };
 
   return ParserDelete;
@@ -86,12 +88,13 @@ ParserDelete = (function(superClass) {
 ParserInsert = (function(superClass) {
   extend(ParserInsert, superClass);
 
-  function ParserInsert() {
+  function ParserInsert(query1) {
+    this.query = query1;
     this;
   }
 
   ParserInsert.prototype.ICan = function() {
-    return false;
+    return _.startsWith(this.query, 'insert into ');
   };
 
   return ParserInsert;
@@ -101,12 +104,13 @@ ParserInsert = (function(superClass) {
 ParserSelect = (function(superClass) {
   extend(ParserSelect, superClass);
 
-  function ParserSelect() {
+  function ParserSelect(query1) {
+    this.query = query1;
     this;
   }
 
   ParserSelect.prototype.ICan = function() {
-    return true;
+    return _.startsWith(this.query, 'select ');
   };
 
   return ParserSelect;
@@ -116,12 +120,13 @@ ParserSelect = (function(superClass) {
 ParserUpdate = (function(superClass) {
   extend(ParserUpdate, superClass);
 
-  function ParserUpdate() {
+  function ParserUpdate(query1) {
+    this.query = query1;
     this;
   }
 
   ParserUpdate.prototype.ICan = function() {
-    return false;
+    return _.startsWith(this.query, 'update ');
   };
 
   return ParserUpdate;

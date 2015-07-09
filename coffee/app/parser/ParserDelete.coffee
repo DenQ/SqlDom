@@ -1,5 +1,6 @@
 class ParserDelete extends IParser
 
-  constructor:-> @
+  constructor:(@query)-> @
 
-  ICan:-> false
+  ICan:->
+    return _.startsWith @query, 'delete '

@@ -1,5 +1,6 @@
 class ParserUpdate extends IParser
 
-  constructor:-> @
+  constructor:(@query)-> @
 
-  ICan:-> false
+  ICan:->
+    return _.startsWith @query, 'update '
