@@ -2,14 +2,13 @@
 var SqlDom;
 
 SqlDom = (function() {
-  function SqlDom() {}
-
-  SqlDom.prototype.foo = function() {
-    return 1;
-  };
-
-  SqlDom.prototype.Update = function(query) {};
+  function SqlDom(query) {
+    console.log(query);
+    return this;
+  }
 
   return SqlDom;
 
 })();
+
+SqlDom('select * from .container');

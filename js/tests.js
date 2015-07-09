@@ -2,9 +2,8 @@
 (function() {
   describe("A suite", function() {
     return it("contains spec with an expectation", function() {
-      var app;
-      app = new SqlDom();
-      return expect(app.foo()).toBe(1);
+      SqlDom('select * from .container');
+      return expect(1).toBe(1);
     });
   });
 

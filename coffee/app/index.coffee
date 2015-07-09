@@ -1,14 +1,8 @@
 class SqlDom
 
-  foo:-> 1
+  constructor:(query)->
+    console.log query
+    return @
 
-  Update:(query)->
 
-
-
-#sqlDom = new SqlDom()
-#f =->
-#  return 555
-#
-#query = 'update '
-#sqlDom.Update query
+SqlDom 'select * from .container'
