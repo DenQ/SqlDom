@@ -1,0 +1,1 @@
+class ParserSelect extends IParser

@@ -1,0 +1,1 @@
+class ParserInsert extends IParser

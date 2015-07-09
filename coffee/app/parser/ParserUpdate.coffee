@@ -1,0 +1,1 @@
+class ParserUpdate extends IParser
